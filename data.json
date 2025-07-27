@@ -1,0 +1,84 @@
+{
+  "booksData": [
+    {
+      "id": 1,
+      "title": "Laskar Pelangi",
+      "author": "Andrea Hirata",
+      "year": 2005,
+      "publisher": "Bentang Pustaka",
+      "pages": 529,
+      "category": "Fiksi, Pendidikan",
+      "synopsis": "Kisah tentang perjuangan sekelompok anak di Belitung yang bersekolah di SD Muhammadiyah dengan fasilitas seadanya. Mereka berjuang untuk mendapatkan pendidikan yang layak di tengah keterbatasan."
+    },
+    {
+      "id": 2,
+      "title": "Bumi Manusia",
+      "author": "Pramoedya Ananta Toer",
+      "year": 1980,
+      "publisher": "Hasta Mitra",
+      "pages": 535,
+      "category": "Fiksi Sejarah",
+      "synopsis": "Novel pertama dari Tetralogi Buru yang mengisahkan kehidupan Minke, seorang pemuda pribumi di masa penjajahan Belanda, dan perjuangannya melawan ketidakadilan."
+    },
+    {
+      "id": 3,
+      "title": "Negeri 5 Menara",
+      "author": "Ahmad Fuadi",
+      "year": 2009,
+      "publisher": "Gramedia Pustaka Utama",
+      "pages": 424,
+      "category": "Fiksi, Inspiratif",
+      "synopsis": "Kisah perjalanan enam santri di Pondok Madani yang memiliki impian besar. Mereka memegang prinsip 'Man Jadda Wajada' (Siapa yang bersungguh-sungguh akan sukses)."
+    },
+    {
+      "id": 4,
+      "title": "Ronggeng Dukuh Paruk",
+      "author": "Ahmad Tohari",
+      "year": 1982,
+      "publisher": "Gramedia Pustaka Utama",
+      "pages": 320,
+      "category": "Fiksi, Budaya",
+      "synopsis": "Kisah tentang Srintil, seorang ronggeng di Dukuh Paruk yang menghadapi berbagai tantangan hidup. Novel ini menggambarkan kehidupan masyarakat pedesaan Jawa dengan segala kompleksitasnya."
+    },
+    {
+      "id": 5,
+      "title": "Perahu Kertas",
+      "author": "Dee Lestari",
+      "year": 2009,
+      "publisher": "Bentang Pustaka",
+      "pages": 444,
+      "category": "Fiksi, Romantis",
+      "synopsis": "Kisah Kugy dan Keenan yang memiliki impian besar dalam dunia seni. Mereka menemukan cinta dan arti kehidupan melalui perjalanan yang penuh lika-liku."
+    },
+    {
+      "id": 6,
+      "title": "Pulang",
+      "author": "Leila S. Chudori",
+      "year": 2012,
+      "publisher": "Kepustakaan Populer Gramedia",
+      "pages": 496,
+      "category": "Fiksi Sejarah",
+      "synopsis": "Kisah eksil Indonesia yang hidup di pengasingan setelah peristiwa G30S. Novel ini mengangkat tema pengorbanan, cinta, dan kerinduan akan tanah air."
+    },
+    {
+      "id": 7,
+      "title": "Cantik Itu Luka",
+      "author": "Eka Kurniawan",
+      "year": 2002,
+      "publisher": "Jendela",
+      "pages": 487,
+      "category": "Fiksi, Magis Realisme",
+      "synopsis": "Kisah Dewi Ayu dan ketiga putrinya yang hidup di sebuah kota kecil di pesisir Jawa. Novel ini penuh dengan elemen magis dan kritik sosial."
+    },
+    {
+      "id": 8,
+      "title": "Saman",
+      "author": "Ayu Utami",
+      "year": 1998,
+      "publisher": "Kepustakaan Populer Gramedia",
+      "pages": 176,
+      "category": "Fiksi, Sosial",
+      "synopsis": "Kisah tentang Saman, seorang pastor yang meninggalkan tugasnya untuk membantu para petani yang tertindas. Novel ini mengangkat isu-isu politik, agama, dan seksualitas."
+    }
+  ]
+}
