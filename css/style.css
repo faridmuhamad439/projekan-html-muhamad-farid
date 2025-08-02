@@ -1,82 +1,69 @@
+/* ==================================== */
+/* 1. DASAR & RESET                     */
+/* ==================================== */
+
 * {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
     scroll-behavior: smooth;
     box-sizing: border-box;
-    scroll-padding-top: 5rem;
 }
 
 body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: "Segoe UI", sans-serif;
+    background: #060606;
+    color: #e0e0e0;
 }
 
 a {
     text-decoration: none;
+    color: inherit;
 }
 
-/* HEADER */
-header {
+/* ==================================== */
+/* 2. HEADER & NAVIGASI                 */
+/* ==================================== */
+.main-header {
     position: sticky;
     top: 0;
     z-index: 1000;
-}
 
-.art {
-    font-family: Skrip Kuas;
-    color: #356999;
-}
-
-body {
-    background-color: #060606;
 }
 
 .head {
-    position: sticky;
-    top: 0;
     left: 0;
     width: 100%;
     z-index: 100;
-    background-color: rgba(253, 248, 248, 0.055);
-    /* hitam transparan */
-    backdrop-filter: blur(5px);
-    padding: 20px 5%;
-    align-items: center;
+    background-color: rgba(6, 6, 6, 0.7);
+    backdrop-filter: blur(8px);
+    padding: 1rem 5%;
     display: flex;
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
+    border-bottom: 1px solid #333;
 }
 
 .logo {
     display: flex;
+    align-items: center;
 }
 
 .logo img {
     width: 40px;
     height: 40px;
-    border-radius: 40% 80% 50% 60%;
+    border-radius: 50%;
     margin-right: 10px;
 }
 
 .logo h1 {
-    font-size: 24px;
+    font-size: 1.5rem; /* 24px */
     font-weight: bold;
-    color: #ffffff;
-    text-underline-offset: 4px;
 }
 
-.logo span {
+.logo span i.art {
+    font-family: 'Segoe Script', 'Brush Script MT', cursive;
     color: #356999;
-}
-
-.logo span:hover {
-    color: #ffffff;
-    text-decoration: underline;
-    text-decoration-color: #356999;
-    transition: color 0.3s ease, text-decoration-color 0.3s ease;
 }
 
 .nav-menu {
@@ -85,126 +72,156 @@ body {
     gap: 20px;
 }
 
-
 .nav-menu li a {
     position: relative;
-    color: white;
-    text-decoration: none;
-    transition: color 0.5s ease;
-}
-
-.nav-menu li a::after {
-    content: "";
-    position: absolute;
-    left: 50%;
-    height: 1px;
-    bottom: -5px;
-    width: 0;
-    background-color: #356999;
-    transition: width 0.5s ease;
-    transform: translateX(-50%);
-}
-
-.nav-menu li a:hover::after,
-.nav-menu li a.active::after {
-    width: 100%;
-    left: 0;
-    transform: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
 }
 
 .nav-menu li a:hover,
 .nav-menu li a.active {
-    color: #356999;
-    text-shadow: 0 0px 4px #356999;
+    background-color: #356999;
 }
 
-
-.search-box {
-    display: flex;
-    /* width: 100%; */
-    max-width: 400px;
-}
-
-.search-box input {
-    border-top-left-radius: 1vw;
-    border-bottom-left-radius: 1vw;
-    padding: 8px 10px;
+.hamburger {
+    display: none;
+    font-size: 1.5rem; /* 24px */
+    background: none;
     border: none;
-    outline: none;
-    font-size: 14px;
-}
-
-.search-box button {
-    border-bottom-right-radius: 1vw;
-    border-top-right-radius: 1vw;
-    background: #356999;
-    border: none;
-    padding: 9px 12px;
+    color: #e0e0e0;
     cursor: pointer;
-    color: #060606;
-    font-size: 20px;
 }
 
-.button-search {
+/* ==================================== */
+/* 3. HERO SECTION (BAGIAN UTAMA)       */
+/* ==================================== */
+.hero-section {
     display: flex;
     align-items: center;
-}
-
-/* kata homepage */
-#kata {
-    margin-top: 20vh;
+    justify-content: center;
     text-align: center;
-    padding: 60px 20px 30px;
+    min-height: 85vh;
+    padding: 5vh 5vw;
+    background-image: linear-gradient(rgba(6, 6, 6, 0.8), rgba(6, 6, 6, 0.8));
+    background-size: cover;
+    background-position: center;
+    color: #ffffff;
 }
 
-#kata h1 {
-    font-size: 2em;
-    margin-bottom: 10px;
-    color: #356999;
+.hero-content h1 {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    margin-bottom: 20px;
+    font-weight: 700;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
 }
 
-#kata p {
-    color: gray;
-    max-width: 600px;
-    margin: 0 auto 20px;
+.hero-content p {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    max-width: 90%;
+    width: 600px;
+    margin: 0 auto 30px;
+    color: #e0e0e0;
 }
 
-#kata button {
-    background-color: #1a1a1a;
-    color: #356999;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 25px;
-    font-size: 1em;
-    cursor: pointer;
+.cta-button {
+    background-color: #356999;
+    color: #ffffff;
+    padding: 15px 35px;
+    border-radius: 50px;
+    font-size: 1.1rem;
     font-weight: bold;
+    transition: background-color 0.3s, transform 0.3s;
+    display: inline-block;
 }
 
-.mulai :hover {
-    transform: translateY(-10px);
-    transition: transform 0.5s ease;
-    transform: scale(1.05);
-    box-shadow: 0 10px 30px rgba(55, 146, 249, 0.7);
-    z-index: 10;
+.cta-button:hover {
+    background-color: #4a8dcf;
+    transform: translateY(-3px);
 }
 
-/* FOOTER */
-.xiaomi-foot {
-    margin-top: 13%;
+/* ==================================== */
+/* 4. SECTION KONTEN UMUM               */
+/* ==================================== */
+.content-section {
+    padding: 5vh 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.section-title {
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    margin-bottom: 40px;
+}
+
+/* Fitur Unggulan */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.feature-card {
     background-color: #1a1a1a;
-    padding: 2%;
-    color: white;
-    border-top: 1px solid #ddd;
-    bottom: 0;
-    height: 50%;
+    padding: 30px;
+    border-radius: 12px;
+    border-top: 3px solid #356999;
+}
+
+.feature-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.feature-card p {
+    color: #a0a0a0;
+    line-height: 1.6;
+}
+
+/* Pratinjau Galeri */
+.gallery-preview-section {
+    background-color: #1a1a1a;
+    padding: 5vh 0;
+}
+
+.image-showcase {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+    margin-bottom: 40px;
+}
+
+.showcase-item img {
+    width: 100%;
+    height: 30vh;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.showcase-item img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+}
+
+/* ==================================== */
+/* 5. FOOTER                            */
+/* ==================================== */
+.xiaomi-foot {
+    margin-top: 10vh;
+    background-color: #1a1a1a;
+    padding: 50px 5%;
+    border-top: 1px solid #333;
 }
 
 .foot-contain {
-    margin: auto;
+    max-width: 1200px;
+    margin: 0 auto;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    margin-left: 10vh;
+    gap: 30px;
 }
 
 .foot {
@@ -212,36 +229,74 @@ body {
     min-width: 250px;
 }
 
-.med {
-    margin-left: 15vh;
-}
-
-#sos {
-    margin-left: 10vh;
-
-}
-
-.foot h2,
-.foot h3 {
+.foot h2, .foot h3 {
     font-weight: 700;
-    margin-bottom: 2vh;
-    /* margin-left: 5vw; */
+    margin-bottom: 20px;
 }
 
 .foot p {
     font-size: 15px;
     line-height: 1.6;
+    opacity: 0.8;
+    color: #a0a0a0;
 }
 
-/* margin-left: 5vh; */
+.foot-medsos {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
 
 .foot-medsos a img {
-
     width: 30px;
-    margin-left: 5vh;
     transition: transform 0.2s ease;
 }
 
 .foot-medsos a img:hover {
     transform: scale(1.1);
+}
+
+/* ==================================== */
+/* 6. RESPONSIVE (UNTUK LAYAR KECIL)    */
+/* ==================================== */
+@media (max-width: 768px) {
+    .nav-menu {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: rgba(6, 6, 6, 0.95);
+        padding: 1rem 0;
+    }
+
+    .nav-menu.active {
+        display: flex;
+    }
+
+    .nav-menu li {
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-menu li a {
+        display: block;
+        padding: 1rem;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    .foot-contain {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 40px;
+    }
+
+    .foot-medsos {
+        justify-content: center;
+    }
 }

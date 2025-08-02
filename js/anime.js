@@ -1,163 +1,122 @@
-        // ==================================== */
-        //         JAVASCRIPT LENGKAP           */
-        // ==================================== */
+document.addEventListener('DOMContentLoaded', () => {
+    let allRawImages = [];
+    let characterList = [];
+    let activeCharacterFilter = 'all';
+    let activeOrientationFilter = 'all';
+    let currentPage = 1;
+    const imagesPerPage = 30;
 
-        // Elemen DOM
-        const characterGrid = document.getElementById('character-grid');
-        const animeTitle = document.getElementById('anime-title');
-        const characterFilterContainer = document.getElementById('character-filter-buttons');
-        const orientationFilterContainer = document.getElementById('orientation-filter-buttons');
+    // Definisikan semua referensi DOM di sini
+    const grid = document.getElementById('character-grid');
+    const animeTitleHeader = document.getElementById('anime-title');
+    const characterFiltersContainer = document.getElementById('character-filter-buttons');
+    const orientationFiltersContainer = document.getElementById('orientation-filter-buttons');
+    const paginationContainer = document.getElementById('pagination-container');
+    const prevButton = document.getElementById('prev-button');
+    const nextButton = document.getElementById('next-button');
+    const pageInfo = document.getElementById('page-info');
 
-        // Menyimpan data anime dan status filter
-        let currentAnimeData = null;
-        let activeCharacterFilter = 'all';
-        let activeOrientationFilter = 'all';
-
-        // Fungsi untuk mendapatkan ID anime dari URL
-        function getAnimeId() {
-            const urlParams = new URLSearchParams(window.location.search);
-            // Default ke ID 1 (Jujutsu Kaisen) jika tidak ada parameter di URL
-            return urlParams.get('animeId') || '1';
+    function initializePage() {
+        displayMessage('Memuat galeri...');
+        const params = new URLSearchParams(window.location.search);
+        const animeId = params.get('animeId');
+        if (!animeId) {
+            displayMessage("ID Anime tidak ditemukan.", true);
+            return;
         }
 
-        // Fungsi untuk membersihkan grid
-        function clearCharacterGrid() {
-            while (characterGrid.firstChild) {
-                characterGrid.removeChild(characterGrid.firstChild);
+        fetch(`https://api-galeri-anime.onrender.com/api/anime/${animeId}`)
+            .then(response => response.json())
+            .then(anime => {
+                processApiData(anime);
+                createCharacterFilterButtons();
+                displayFilteredImages();
+            })
+            .catch(error => {
+                displayMessage(error.message, true);
+            });
+    }
+
+    function displayFilteredImages() {
+        clearElement(grid);
+        let imagesToDisplay = allRawImages;
+
+        if (activeCharacterFilter !== 'all') {
+            imagesToDisplay = imagesToDisplay.filter(img => img.characterName === activeCharacterFilter);
+        }
+        if (activeOrientationFilter !== 'all') {
+            imagesToDisplay = imagesToDisplay.filter(img => img.orientation === activeOrientationFilter);
+        }
+
+        // Panggil fungsi dari page.js dengan semua elemen yang dibutuhkan
+        setupPagination({
+            container: paginationContainer,
+            prevButton: prevButton,
+            nextButton: nextButton,
+            pageInfo: pageInfo,
+            currentPage: currentPage,
+            totalItems: imagesToDisplay.length,
+            itemsPerPage: imagesPerPage,
+            onPageChange: (newPage) => {
+                currentPage = newPage;
+                displayFilteredImages();
             }
+        });
+
+        const startIndex = (currentPage - 1) * imagesPerPage;
+        const paginatedImages = imagesToDisplay.slice(startIndex, startIndex + imagesPerPage);
+
+        if (paginatedImages.length === 0) {
+            displayMessage('Tidak ada gambar yang cocok.');
+            return;
         }
 
-        // Fungsi untuk menambahkan gambar ke grid
-        function addImageToGrid(url) {
+        paginatedImages.forEach(image => {
             const item = document.createElement('div');
             item.className = 'character-item';
             const img = document.createElement('img');
-            img.src = url;
-            img.alt = 'Anime character image';
+            img.src = image.imageUrl;
+            img.alt = image.characterName;
             img.loading = 'lazy';
+            const infoDiv = document.createElement('div');
+            infoDiv.className = 'item-info';
+            const charNameDiv = document.createElement('div');
+            charNameDiv.className = 'info-char';
+            charNameDiv.textContent = image.characterName;
+            infoDiv.appendChild(charNameDiv);
             item.appendChild(img);
-            characterGrid.appendChild(item);
-        }
-
-        // Fungsi untuk menampilkan gambar berdasarkan filter aktif
-        function updateDisplay() {
-            if (!currentAnimeData) return;
-            clearCharacterGrid();
-            currentAnimeData.data.forEach(character => {
-                if (activeCharacterFilter === 'all' || activeCharacterFilter === character.characterName) {
-                    if (activeOrientationFilter === 'all' || activeOrientationFilter === 'square') {
-                        character.characterImage.square.forEach(url => addImageToGrid(url));
-                    }
-                    if (activeOrientationFilter === 'all' || activeOrientationFilter === 'potrait') {
-                        character.characterImage.potrait.forEach(url => addImageToGrid(url));
-                    }
-                    if (activeOrientationFilter === 'all' || activeOrientationFilter === 'landScape') {
-                        character.characterImage.landScape.forEach(url => addImageToGrid(url));
-                    }
-                }
+            item.appendChild(infoDiv);
+            item.addEventListener('click', () => {
+                window.openModal(image.imageUrl);
             });
-        }
-
-        // Fungsi untuk membuat tombol filter karakter dari data API
-        function populateCharacterFilters(anime) {
-            characterFilterContainer.innerHTML = '';
-
-            const allButton = document.createElement('button');
-            allButton.className = 'filter-btn active';
-            allButton.dataset.filter = 'all';
-            allButton.textContent = 'Semua Karakter';
-            characterFilterContainer.appendChild(allButton);
-
-            anime.data.forEach(character => {
-                const imageUrl = character.characterImage.square && character.characterImage.square.length > 0 ?
-                    character.characterImage.square[0] :
-                    'https://via.placeholder.com/55'; // Gambar cadangan
-
-                const charButton = document.createElement('button');
-                charButton.className = 'filter-btn char-filter-btn';
-                charButton.dataset.filter = character.characterName;
-                charButton.dataset.tooltip = character.characterName;
-
-                const img = document.createElement('img');
-                img.src = imageUrl;
-                img.alt = `Filter for ${character.characterName}`;
-                img.loading = 'lazy';
-
-                charButton.appendChild(img);
-                characterFilterContainer.appendChild(charButton);
-            });
-        }
-
-        // Fungsi utama untuk memuat data dari API
-        function loadCharacterImages() {
-            const animeId = getAnimeId();
-            fetch("https://api-galeri-anime.onrender.com/api/anime")
-                .then(response => {
-                    if (!response.ok) throw new Error('Gagal memuat data dari API');
-                    return response.json();
-                })
-                .then(result => {
-                    const anime = result.find(a => a.id == animeId);
-                    if (!anime) throw new Error('Anime tidak ditemukan');
-                    currentAnimeData = anime;
-                    animeTitle.textContent = `${anime.title} Gallery`;
-                    populateCharacterFilters(anime);
-                    updateDisplay();
-                })
-                .catch(error => {
-                    characterGrid.innerHTML = `<div class="error" style="color: red;">${error.message}</div>`;
-                });
-        }
-
-        // --- Event Listeners ---
-
-        characterFilterContainer.addEventListener('click', function(event) {
-            const button = event.target.closest('button');
-            if (button) {
-                activeCharacterFilter = button.dataset.filter;
-                characterFilterContainer.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
-                button.classList.add('active');
-                updateDisplay();
-            }
+            grid.appendChild(item);
         });
+    }
 
-        orientationFilterContainer.addEventListener('click', function(event) {
-            if (event.target.tagName === 'BUTTON') {
-                activeOrientationFilter = event.target.dataset.filter;
-                orientationFilterContainer.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
-                event.target.classList.add('active');
-                updateDisplay();
-            }
-        });
-
-        // --- Fungsionalitas Modal & Hamburger ---
-        const modal = document.getElementById("image-modal");
-        const modalImg = document.getElementById("modal-image");
-        const closeBtn = document.querySelector(".close");
-        const downloadBtn = document.querySelector(".modal .button");
-
-        characterGrid.addEventListener('click', function(event) {
-            if (event.target.tagName === 'IMG') {
-                modal.style.display = "flex";
-                modalImg.src = event.target.src;
-            }
-        });
-        
-        closeBtn.onclick = function() {
-            modal.style.display = "none";
+    characterFiltersContainer.addEventListener('click', (e) => {
+        if (e.target.matches('.filter-btn')) {
+            currentPage = 1;
+            activeCharacterFilter = e.target.dataset.filter;
+            characterFiltersContainer.querySelector('.active')?.classList.remove('active');
+            e.target.classList.add('active');
+            displayFilteredImages();
         }
-        
-        downloadBtn.addEventListener('click', function() {
-            alert('Fitur download masih dalam tahap pengembangan.');
-        });
-        
-        const hamburger = document.getElementById('hamburger');
-        const navMenu = document.getElementById('navMenu');
-        if (hamburger && navMenu) {
-            hamburger.addEventListener('click', () => {
-                navMenu.classList.toggle('active');
-            });
-        }
+    });
 
-        // Inisialisasi saat halaman dimuat
-        loadCharacterImages();
+    orientationFiltersContainer.addEventListener('click', (e) => {
+        if (e.target.matches('.filter-btn')) {
+            currentPage = 1;
+            activeOrientationFilter = e.target.dataset.filter;
+            orientationFiltersContainer.querySelector('.active')?.classList.remove('active');
+            e.target.classList.add('active');
+            displayFilteredImages();
+        }
+    });
+
+    // --- Kode Helper (tidak berubah) ---
+    function processApiData(anime) { animeTitleHeader.textContent = anime.title; const processedImages = []; const characterSet = new Set(); anime.data?.forEach(character => { characterSet.add(character.characterName); const addImage = (url, orientation) => { if (url) processedImages.push({ imageUrl: url, characterName: character.characterName, orientation: orientation, }); }; character.characterImage?.potrait?.forEach(url => addImage(url, 'potrait')); character.characterImage?.square?.forEach(url => addImage(url, 'square')); character.characterImage?.landScape?.forEach(url => addImage(url, 'landScape')); }); allRawImages = processedImages; characterList = ['all', ...characterSet]; }
+    function createCharacterFilterButtons() { clearElement(characterFiltersContainer); characterList.forEach(characterName => { const button = document.createElement('button'); button.className = 'filter-btn'; button.dataset.filter = characterName; button.textContent = (characterName === 'all') ? 'Semua Karakter' : characterName; if (characterName === activeCharacterFilter) button.classList.add('active'); characterFiltersContainer.appendChild(button); }); }
+    function clearElement(element) { while (element.firstChild) { element.removeChild(element.firstChild); }}
+    function displayMessage(message, isError = false) { clearElement(grid); const p = document.createElement('p'); p.textContent = message; if (isError) p.style.color = 'red'; grid.appendChild(p); }
+    initializePage();
+});

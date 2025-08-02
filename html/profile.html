@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Pengguna</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- <link rel="stylesheet" href="/css/resposive.css">
+    <link rel="stylesheet" href="/css/color.css"> -->
+    <link rel="stylesheet" href="/css/anime.css">
+
+    <style>
+        /* ================== */
+        /* GABUNGAN KODE CSS  */
+        /* ================== */
+
+        /* Reset & Basic Styling */
+        /* * {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #060606;
+            color: #ffffff;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        } */
+
+        /* Header & Navbar (Sama seperti halaman lain) */
+        /* header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .head {
+            background-color: rgba(6, 6, 6, 0.7);
+            backdrop-filter: blur(8px);
+            padding: 20px 5%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .logo h1 {
+            font-size: 24px;
+        }
+
+        .logo span i.art {
+            font-family: 'Segoe Script', 'Brush Script MT', cursive;
+            color: #356999;
+        } */
+
+        /* CSS BARU: Profile Section */
+        /* .size {
+            max-width: 900px;
+            
+            margin: 0 auto;
+            padding: 20px;
+        } */
+
+        .profile-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 0;
+        }
+
+        #profile-username {
+            font-size: 2.5em;
+            font-weight: bold;
+        }
+
+        #profile-handle {
+            color: #aaa;
+            margin-top: 5px;
+            margin-bottom: 20px;
+        }
+
+        .profile-actions button {
+            background-color: #2e2e2e;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            margin: 0 5px;
+            font-weight: bold;
+        }
+
+        .profile-actions button:hover {
+            background-color: #444;
+        }
+
+        /* CSS BARU: Profile Tabs */
+        .profile-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            border-bottom: 1px solid #333;
+            margin-bottom: 30px;
+        }
+
+        .tab-btn {
+            background: none;
+            border: none;
+            color: #aaa;
+            padding: 15px 10px;
+            font-size: 1em;
+            font-weight: bold;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .tab-btn.active {
+            color: white;
+        }
+
+        .tab-btn.active::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: white;
+        }
+
+        /* Grid Gambar (Menggunakan style yang sama dari halaman explore) */
+        /* .character-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            gap: 20px;
+            min-height: 200px;
+        }
+
+        .character-grid p {
+            grid-column: 1 / -1;
+            text-align: center;
+            margin-top: 40px;
+            font-size: 1.1em;
+            color: #888;
+        }
+
+        .character-item {
+            background-color: #1a1a1a;
+            border-radius: 12px;
+            overflow: hidden;
+            height: 240px;
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .character-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .character-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        } */
+
+        /* Pesan untuk login */
+        .login-prompt {
+            text-align: center;
+            padding: 50px;
+        }
+
+        .login-prompt a {
+            color: #356999;
+            font-weight: bold;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <section> -->
+   <header class="main-header">
+            <div class="head">
+                <button class="hamburger" id="hamburger">&#9776;</button>
+                    <a href="/index.html" class="logo">
+                        <img src="/asset/finterest logo.jpg" alt="icon" />
+                        <h1>Fussionn<span><i class="art">Art</i></span></h1>
+                    </a>
+                    <nav class="navbar">
+                        <div class="nav-blur-overlay">
+                            <ul class="nav-menu" id="navMenu">
+                                <li><a href="home.html">Home</a></li>
+                                <li><a href="explore.html">Explore</a></li>
+                                <li><a href="mesagge.html">Message</a></li>
+                                <li><a href="about.html">About</a></li>
+                                <li><a class="active" href="profile.html">Profile</a></li>
+                                <li><a href="profile.html">Mode</a></li>
+                                <li><a href="/index.html">Log Out</a></li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </header>
+    <!-- </section> -->
+
+    <main>
+        <section class="size">
+            <div id="profile-content">
+                <div class="profile-info">
+                    <h1 id="profile-username">Nama Pengguna</h1>
+                    <p id="profile-handle">@username</p>
+                    <!-- <div class="profile-actions">
+                        <button>Bagikan</button>
+                        <button>Edit Profil</button>
+                    </div> -->
+                </div>
+
+                <div class="profile-tabs" id="profile-tabs">
+                    <button class="tab-btn active" data-tab="liked">❤️ Disukai</button>
+                    <button class="tab-btn" data-tab="favorites">⭐ Favorit</button>
+                </div>
+
+                <div class="character-grid" id="profile-grid">
+                </div>
+            </div>
+
+            <div id="login-prompt" class="login-prompt" style="display: none;">
+                <h2>Anda Belum Login</h2>
+                <p>Silakan <a href="regist.html">login atau daftar</a> untuk melihat profil Anda.</p>
+            </div>
+        </section>
+    </main>
+    <script src="/js/script.js"></script>
+    <script>
+        // ===============================================
+        //  JAVASCRIPT UNTUK HALAMAN PROFIL
+        // ===============================================
+
+        // BAGIAN 1: Referensi Elemen & Variabel Global
+        const loggedInUser = localStorage.getItem("loggedInUser");
+        let allImageData = []; // Untuk menyimpan semua data gambar dari API
+
+        const profileContent = document.getElementById('profile-content');
+        const loginPrompt = document.getElementById('login-prompt');
+        const profileUsername = document.getElementById('profile-username');
+        const profileHandle = document.getElementById('profile-handle');
+        const profileTabs = document.getElementById('profile-tabs');
+        const grid = document.getElementById('profile-grid');
+
+        // BAGIAN 2: Fungsi-fungsi Helper (Sama seperti di halaman explore)
+        function getLikes() {
+            if (!loggedInUser) return [];
+            const key = `likedImages_${loggedInUser}`;
+            const likes = localStorage.getItem(key);
+            return likes ? JSON.parse(likes) : [];
+        }
+
+        function getFavorites() {
+            if (!loggedInUser) return [];
+            const key = `favoritedImages_${loggedInUser}`;
+            const favorites = localStorage.getItem(key);
+            return favorites ? JSON.parse(favorites) : [];
+        }
+
+        // BAGIAN 3: Fungsi Utama untuk Menampilkan Gambar
+
+        // Fungsi untuk mengambil dan memproses data API menjadi daftar gambar
+        function fetchAndProcessImages() {
+            // Kita fetch ulang data agar punya informasi lengkap (judul anime, dll) untuk setiap gambar
+            return fetch("https://api-galeri-anime.onrender.com/api/anime")
+                .then(response => response.json())
+                .then(data => {
+                    const processedData = [];
+                    const filteredAnime = data.filter(anime => anime.id >= 1 && anime.id <= 11);
+                    filteredAnime.forEach(anime => {
+                        if (anime.data) {
+                            anime.data.forEach(character => {
+                                if (character.characterImage) {
+                                    const addImage = (url, orientation) => {
+                                        if (url) processedData.push({ imageUrl: url, orientation, characterName: character.characterName, animeTitle: anime.title });
+                                    };
+                                    character.characterImage.potrait?.forEach(url => addImage(url, 'potrait'));
+                                    character.characterImage.square?.forEach(url => addImage(url, 'square'));
+                                    character.characterImage.landScape?.forEach(url => addImage(url, 'landScape'));
+                                }
+                            });
+                        }
+                    });
+                    allImageData = processedData; // Simpan hasilnya ke variabel global
+                });
+        }
+
+        // Fungsi untuk menampilkan gambar berdasarkan daftar URL
+        function renderGrid(imageUrlList, emptyMessage) {
+            grid.innerHTML = ''; // Kosongkan grid
+
+            // Filter data gambar lengkap berdasarkan daftar URL yang kita punya
+            const imagesToDisplay = allImageData.filter(imgData => imageUrlList.includes(imgData.imageUrl));
+
+            if (imagesToDisplay.length === 0) {
+                grid.tagName = `<p>${emptyMessage}</p>`;
+                return;
+            }
+
+            imagesToDisplay.forEach(image => {
+                const item = document.createElement('div');
+                item.className = 'character-item';
+
+                const img = document.createElement('img');
+                img.src = image.imageUrl;
+                img.alt = `${image.characterName} dari ${image.animeTitle}`;
+                img.loading = 'lazy';
+
+                item.appendChild(img);
+                grid.appendChild(item);
+            });
+        }
+
+        // BAGIAN 4: Logika Inisialisasi Halaman
+        document.addEventListener('DOMContentLoaded', () => {
+            // Cek apakah ada pengguna yang login
+            if (!loggedInUser) {
+                // Jika tidak, sembunyikan konten profil dan tampilkan pesan login
+                profileContent.style.display = 'none';
+                loginPrompt.style.display = 'block';
+                return; // Hentikan eksekusi skrip
+            }
+
+            // Jika ada yang login, lanjutkan
+            // 1. Tampilkan nama pengguna di profil
+            profileUsername.textContent = loggedInUser;
+            profileHandle.textContent = `@${loggedInUser}`;
+
+            // 2. Ambil data gambar dari API, lalu tampilkan tab default (Disukai)
+            grid.textContent = "<p>Memuat gambar...</p>";
+            fetchAndProcessImages().then(() => {
+                // Setelah semua data gambar siap, tampilkan gambar yang disukai
+                renderGrid(getLikes(), "Anda belum menyukai gambar apapun.");
+            }).catch(error => {
+                grid.textContent = `<p style="color:red;">Gagal memuat data gambar.</p>`
+            });
+
+            // 3. Tambahkan event listener untuk tab
+            profileTabs.addEventListener('click', (event) => {
+                if (event.target.matches('.tab-btn')) {
+                    const tab = event.target.dataset.tab;
+
+                    // Hapus class 'active' dari tab sebelumnya
+                    profileTabs.querySelector('.active').classList.remove('active');
+                    // Tambahkan class 'active' ke tab yang diklik
+                    event.target.classList.add('active');
+
+                    if (tab === 'liked') {
+                        renderGrid(getLikes(), "Anda belum menyukai gambar apapun.");
+                    } else if (tab === 'favorites') {
+                        renderGrid(getFavorites(), "Anda belum memfavoritkan gambar apapun.");
+                    }
+                }
+            });
+        });
+
+    </script>
+</body>
+
+</html>

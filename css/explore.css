@@ -1,0 +1,64 @@
+
+    .size {
+      max-width: 1200px;
+      margin: 20px auto;
+      padding: 20px;
+    }
+
+    .explore-header {
+      margin-bottom: 20px;
+    }
+
+    .explore-header h1 {
+      font-size: 2.2em;
+      color: #2c3e50;
+    }
+
+    .search-container {
+      margin-bottom: 25px;
+    }
+
+    .search-container form {
+      width: 100%;
+      max-width: 700px;
+      margin: 0 auto;
+      display: flex;
+      border: 1px solid #ddd;
+      border-radius: 50px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    }
+
+    .search-container input {
+      border: none;
+      padding: 12px 25px;
+      font-size: 16px;
+      flex-grow: 1;
+      outline: none;
+    }
+
+    .search-container button {
+      display: none;
+    }
+    .item-info {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 20%, transparent);
+      color: white;
+      padding: 25px 12px 8px 12px;
+      font-size: 13px;
+      pointer-events: none;
+    }
+
+    .item-info .info-char {
+      font-weight: bold;
+    }
+
+    .item-info .info-anime {
+      font-size: 11px;
+      opacity: 0.9;
+    }
+
+    

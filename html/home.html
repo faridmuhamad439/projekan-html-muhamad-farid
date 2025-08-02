@@ -6,22 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="/css/color.css">
-    <link rel="stylesheet" href="/css/resposive.css">
+    <!-- <link rel="stylesheet" href="/css/color.css"> -->
+    <!-- <link rel="stylesheet" href="/css/resposive.css"> -->
     <link rel="stylesheet" href="/css/home.css">
     <link rel="stylesheet" href="/css/anime.css">
 </head>
 
 <body>
-    <main>
-        <section>
-            <header class="main-header">
-                <div class="head">
-                    <button class="hamburger" id="hamburger">&#9776;</button>
-                    <!-- Logo -->
+   <header class="main-header">
+            <div class="head">
+                <button class="hamburger" id="hamburger">&#9776;</button>
                     <a href="/index.html" class="logo">
                         <img src="/asset/finterest logo.jpg" alt="icon" />
-                        <h1><u class="row">Fussio</u><u>nn</u><span><i class="art">ART</i></span></h1>
+                        <h1>Fussionn<span><i class="art">Art</i></span></h1>
                     </a>
                     <nav class="navbar">
                         <div class="nav-blur-overlay">
@@ -30,22 +27,35 @@
                                 <li><a href="explore.html">Explore</a></li>
                                 <li><a href="mesagge.html">Message</a></li>
                                 <li><a href="about.html">About</a></li>
+                                <li><a href="profile.html">Profile</a></li>
+                                <li><a href="profile.html">Mode</a></li>
+                                <li><a href="/index.html">Log Out</a></li>
                             </ul>
                         </div>
                     </nav>
-                    <!-- Search Box -->
-                    <form action="home.html" class="search-box" id="searchBox">
-                        <input type="search" name="q" id="search-input" placeholder="Search anime..." required />
-                        <button type="submit" class="button-search" for="search-input">
-                            <i class="bx bx-search"></i>
-                        </button>
-                    </form>
                 </div>
             </header>
-        </section>
+    <main>
+        <!-- </section> -->
         <section class="size">
+            <!-- <div class="size"> -->
+            <div class="video-wrapper">
+                <video id="main-video" controls autoplay muted loop>
+                    Maaf, browser Anda tidak mendukung tag video.
+                </video>
+                <button id="prev-video-btn" class="nav-btn">&lt;</button>
+                <button id="next-video-btn" class="nav-btn">&gt;</button>
+            </div>
+            <div class="explore-header">
+                <h1>Find your Anime</h1>
+            </div>
+            <form id="searchBox">
+                <input type="search" id="search-input" placeholder="Cari nama anime...">
+                <button type="submit">Cari</button>
+            </form>
             <div class="anime-gallery" id="anime-gallery"></div>
         </section>
+        <!-- </div> -->
     </main>
     <footer class="xiaomi-foot">
         <div class="foot-contain">
@@ -75,6 +85,8 @@
     </footer>
     <script src="/js/script.js"></script>
     <script src="/js/home.js"></script>
+    <!-- <script src="../js/explore.js"></script> -->
+    <script src="/js/search.js"></script>
 </body>
 
 </html>

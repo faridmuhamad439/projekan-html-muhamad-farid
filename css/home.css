@@ -1,3 +1,158 @@
+/* Penataan Konten Utama */
+.size {
+    max-width: 1200px;
+    margin: 2rem auto;
+    /* Jarak atas/bawah dan tengah secara horizontal */
+    padding: 0 2%;
+    /* Padding kiri kanan agar tidak menempel di layar kecil */
+}
+
+/* --- Bagian Video Slider --- */
+.video-wrapper {
+    margin-top: 2%;
+    position: relative;
+    /* Kunci untuk menempatkan tombol di atas video */
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    /* Menjaga rasio video 16:9 agar tidak peyot */
+    margin-bottom: 4rem;
+    /* Jarak ke konten di bawahnya */
+    border-radius: 12px;
+    overflow: hidden;
+    /* Agar video tidak keluar dari sudut melengkung */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+#main-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Memastikan video menutupi area tanpa distorsi */
+    display: block;
+}
+
+.nav-btn {
+    position: absolute;
+    top: 50%;
+    /* Posisikan di tengah secara vertikal */
+    transform: translateY(-50%);
+    /* Penyesuaian agar benar-benar di tengah */
+    background-color: rgba(0, 0, 0, 0.4);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    opacity: 0;
+    /* Sembunyikan tombol secara default */
+    transition: opacity 0.3s ease;
+}
+
+/* Tampilkan tombol saat mouse berada di atas video-wrapper */
+.video-wrapper:hover .nav-btn {
+    opacity: 1;
+}
+
+#prev-video-btn {
+    left: 1rem;
+}
+
+#next-video-btn {
+    right: 1rem;
+}
+
+/* --- Bagian Galeri Anime --- */
+.explore-header h1 {
+    text-align: center;
+    font-size: 2.2em;
+    margin-bottom: 1.5rem;
+}
+
+#searchBox, #explore-search-form {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 3rem;
+}
+
+#search-input, #explore-search-input {
+    width: 100%;
+    max-width: 500px;
+    padding: 0.75rem 1.25rem;
+    font-size: 1rem;
+    border-radius: 25px;
+    border: 1px solid #444;
+    background-color: #222;
+    color: #fff;
+}
+
+#searchBox button, #explore-search-form button{
+    display: none;
+    /* Tombol 'Cari' disembunyikan */
+}
+
+/* Tombol navigasi overlay */
+.nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.7);
+    border: none;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    font-size: 22px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s;
+    opacity: 0.6;
+    /* Tombol dibuat sedikit transparan */
+}
+
+.nav-btn:hover {
+    opacity: 1;
+    /* Terlihat jelas saat disentuh mouse */
+    background-color: white;
+}
+
+#prev-video-btn {
+    left: 15px;
+}
+
+#next-video-btn {
+    right: 15px;
+}
+
+/* search hume */
+.searchBox {
+    margin-bottom: 25px;
+}
+
+.searchBox {
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+    display: flex;
+    border: 1px solid #ddd;
+    border-radius: 50px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.searchBox input {
+    border: none;
+    padding: 12px 25px;
+    font-size: 16px;
+    flex-grow: 1;
+    outline: none;
+}
+
+.searchBox button {
+    display: none;
+}
+
+/* gambar */
 .anime-gallery {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
@@ -27,9 +182,11 @@
     display: block;
     transition: transform 0.5s ease;
 }
+
 .landscape-card:hover .landscape-image {
-            transform: scale(1.05);
-        }
+    transform: scale(1.05);
+}
+
 .card-overlay {
     position: absolute;
     bottom: 0;
