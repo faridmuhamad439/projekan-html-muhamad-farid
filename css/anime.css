@@ -1,7 +1,8 @@
 .size {
     max-width: 1400px;
-    margin: 0 auto;
+    margin: 2% auto ;
     width: 75%;
+
 }
 
 
@@ -420,3 +421,50 @@
         .modal .button.favorited {
             background-color: #ffc107;
         }
+
+/* pagination */
+/* Penataan Wadah Pagination */
+#pagination-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px; /* Jarak antar elemen */
+    margin-top: 2.5rem; /* Jarak dari galeri di atasnya */
+}
+
+/* Penataan Tombol Navigasi (< dan >) */
+#pagination-container button {
+    background-color: #2e2e2e;
+    border: 1px solid #555;
+    color: #e0e0e0;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%; /* Membuat tombol menjadi bulat */
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+#pagination-container button:hover {
+    background-color: #356999;
+    color: #ffffff;
+}
+
+/* Penataan untuk tombol yang nonaktif */
+#pagination-container button:disabled {
+    background-color: #222;
+    color: #666;
+    cursor: not-allowed;
+    border-color: #333;
+}
+
+/* Penataan Teks Info Halaman (Contoh: Halaman 1 dari 5) */
+#page-info {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #a0a0a0;
+}

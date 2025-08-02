@@ -5,6 +5,7 @@
     /* Jarak atas/bawah dan tengah secara horizontal */
     padding: 0 2%;
     /* Padding kiri kanan agar tidak menempel di layar kecil */
+    /* overflow-y: auto; */
 }
 
 /* --- Bagian Video Slider --- */
