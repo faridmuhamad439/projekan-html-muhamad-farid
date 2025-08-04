@@ -1,41 +1,39 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FussionnArt</title>
+
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 
 </head>
-<body>
-    <header class="main-header">
-            <div class="head">
-                <!-- <button class="hamburger" id="hamburger">&#9776;</button> -->
-                    <a href="/index.html" class="logo">
-                        <img src="/asset/finterest logo.jpg" alt="icon" />
-                        <h1>Fussionn<span><i class="art">Art</i></span></h1>
-                    </a>
-                    <!-- <nav class="navbar">
-                        <div class="nav-blur-overlay">
-                            <ul class="nav-menu" id="navMenu">
-                                <li><a class="active" href="home.html">Home</a></li>
-                                <li><a href="explore.html">Explore</a></li>
-                                <li><a href="mesagge.html">Message</a></li>
-                                <li><a href="about.html">About</a></li>
-                                <li><a href="profile.html">Profile</a></li>
-                                <li><a href="profile.html">Mode</a></li>
-                                <li class="logout"><a href="/index.html" id="logout-button">Log Out</a></li>
-                            </ul>
-                        </div>
-                    </nav> -->
-                </div>
-    </header>
 
+<body>
+     <header class="main-header">
+        <div class="head">
+            <!-- <button class="hamburger" id="hamburger">&#9776;</button> -->
+            <a href="home.html" class="logo">
+                <img src="/asset/finterest logo.jpg" alt="icon" />
+                <h1>Fussionn<span><i class="art">Art</i></span></h1>
+            </a>
+            <nav class="navbar">
+                <div class="nav-blur-overlay">
+                    <ul class="nav-menu" id="navMenu">
+                        <li class="hover"><a  id="theme-toggle"href="#">Mode</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
     <main>
         <section class="hero-section">
             <div class="hero-content">
                 <h1>Tempat Terbaik Untuk Menikmati Gambar Anime Favoritmu!</h1>
-                <p>Jelajahi ribuan gambar anime berkualitas tinggi dari berbagai genre. Update setiap hari dan gratis diakses kapan saja!</p>
+                <p>Jelajahi ribuan gambar anime berkualitas tinggi dari berbagai genre. Update setiap hari dan gratis
+                    diakses kapan saja!</p>
                 <a href="/html/regist.html" class="cta-button">Mulai Sekarang →</a>
             </div>
         </section>
@@ -45,15 +43,18 @@
             <div class="features-grid">
                 <div class="feature-card">
                     <h3>Koleksi Luas</h3>
-                    <p>Dari anime legendaris hingga rilis terbaru, temukan gambar dari judul-judul favorit Anda di satu tempat.</p>
+                    <p>Dari anime legendaris hingga rilis terbaru, temukan gambar dari judul-judul favorit Anda di satu
+                        tempat.</p>
                 </div>
                 <div class="feature-card">
                     <h3>Kualitas Terbaik</h3>
-                    <p>Semua gambar disajikan dalam resolusi tinggi, sempurna untuk wallpaper desktop maupun mobile Anda.</p>
+                    <p>Semua gambar disajikan dalam resolusi tinggi, sempurna untuk wallpaper desktop maupun mobile
+                        Anda.</p>
                 </div>
                 <div class="feature-card">
                     <h3>Personalisasi</h3>
-                    <p>Simpan gambar yang Anda suka dan buat koleksi favorit pribadi Anda untuk diakses kembali kapan saja.</p>
+                    <p>Simpan gambar yang Anda suka dan buat koleksi favorit pribadi Anda untuk diakses kembali kapan
+                        saja.</p>
                 </div>
             </div>
         </section>
@@ -62,11 +63,11 @@
             <div class="content-section" style="padding-top: 0;">
                 <h2 class="section-title">Pratinjau Galeri</h2>
                 <div class="image-showcase" id="image-showcase">
-                    </div>
+                </div>
                 <a href="html/explore.html" class="cta-button">Lihat Lebih Banyak</a>
             </div>
         </section>
-        
+
     </main>
 
     <footer class="xiaomi-foot">
@@ -81,70 +82,21 @@
             <div class="foot">
                 <h3 class="med">Follow Us</h3>
                 <div id="sos" class="foot-medsos">
-                    <a href="https://www.instagram.com/faridmuhamad439/" target="_blank"><img src="asset/ig-medsos.png" alt="Instagram" /></a>
-                    <a href="https://www.youtube.com/@muhamadfarid8494" target="_blank"><img src="asset/yt-medsos.png" alt="Youtube" /></a>
-                    <a href="https://www.tiktok.com/@fm.0610" target="_blank"><img src="asset/tiktok-medsos.png" alt="Tiktok" /></a>
+                    <a href="https://www.instagram.com/faridmuhamad439/" target="_blank"><img src="asset/ig-medsos.png"
+                            alt="Instagram" /></a>
+                    <a href="https://www.youtube.com/@muhamadfarid8494" target="_blank"><img src="asset/yt-medsos.png"
+                            alt="Youtube" /></a>
+                    <a href="https://www.tiktok.com/@fm.0610" target="_blank"><img src="asset/tiktok-medsos.png"
+                            alt="Tiktok" /></a>
                 </div>
             </div>
             <div class="foot">
                 <h3>About Us</h3>
-                <p>copyright © 2025 by <strong>FussionnART</strong></p> </div>
+                <p>copyright © 2025 by <strong>FussionnART</strong></p>
+            </div>
         </div>
     </footer>
-
-    <script>
-        // --- Skrip untuk Hamburger Menu (asumsi dari script.js Anda) ---
-        const hamburger = document.getElementById("hamburger");
-        const navMenu = document.getElementById("navMenu"); // Pastikan nav-menu punya ID ini di CSS Anda
-        if (hamburger && navMenu) {
-            hamburger.addEventListener("click", () => {
-                // Contoh logika sederhana, sesuaikan dengan implementasi Anda
-                navMenu.classList.toggle("active");
-            });
-        }
-
-        // --- Skrip untuk Memuat Pratinjau Galeri ---
-        document.addEventListener('DOMContentLoaded', () => {
-            const showcaseContainer = document.getElementById('image-showcase');
-
-            if (showcaseContainer) {
-                fetch("https://api-galeri-anime.onrender.com/api/anime")
-                    .then(response => {
-                        if (!response.ok) throw new Error('Network response was not ok');
-                        return response.json();
-                    })
-                    .then(data => {
-                        const previewImages = [];
-                        // Ambil beberapa gambar acak untuk pratinjau
-                        data.slice(0, 6).forEach(anime => {
-                            if (anime.data && anime.data.length > 0) {
-                                const character = anime.data[0];
-                                if (character.characterImage?.potrait?.[0]) {
-                                    previewImages.push(character.characterImage.potrait[0]);
-                                } else if (character.characterImage?.landScape?.[0]) {
-                                    previewImages.push(character.characterImage.landScape[0]);
-                                }
-                            }
-                        });
-
-                        // Tampilkan gambar ke showcase
-                        previewImages.slice(0, 12).forEach(url => { // Batasi maksimal 12 gambar
-                            const item = document.createElement('div');
-                            item.className = 'showcase-item';
-                            const img = document.createElement('img');
-                            img.src = url;
-                            img.loading = 'lazy';
-                            item.appendChild(img);
-                            showcaseContainer.appendChild(item);
-                        });
-                    })
-                    .catch(error => {
-                        console.error('Error fetching gallery preview:', error);
-                        showcaseContainer.textContent = 'Gagal memuat pratinjau galeri.';
-                    });
-            }
-        });
-    </script>
+    <script src="js/script.js"></script>
 </body>
 
 </html>

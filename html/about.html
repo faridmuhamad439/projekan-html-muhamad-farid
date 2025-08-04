@@ -6,272 +6,110 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FussionnArt</title>
     <link rel="stylesheet" href="/css/style.css">
-    <!-- <link rel="stylesheet" href="/css/color.css">
-    <link rel="stylesheet" href="/css/resposive.css"> -->
-    <style>
-       /* File: css/about.css */
-
-/* --- Layout Utama Halaman --- */
-.page-wrapper-with-aside {
-    display: grid;
-    /* Membuat layout 2 kolom: konten utama lebih lebar dari sidebar */
-    grid-template-columns: 2fr 1fr;
-    gap: 40px; /* Jarak antara konten utama dan sidebar */
-    max-width: 1200px;
-    margin: 40px auto; /* Posisi di tengah halaman dengan jarak atas/bawah */
-    padding: 20px;
-}
-
-/* --- Konten Utama (Sebelah Kiri) --- */
-.about-container {
-    color: #e0e0e0;
-    line-height: 1.7; /* Jarak antar baris teks agar mudah dibaca */
-}
-
-.about-hero {
-    text-align: center;
-    margin-bottom: 50px;
-    padding-bottom: 30px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.about-hero h1 {
-    font-size: 2.8em;
-    color: #ffffff;
-    margin-bottom: 10px;
-}
-
-.about-hero .subtitle {
-    font-size: 1.2em;
-    color: #a0a0a0;
-    font-style: italic;
-}
-
-.about-section {
-    margin-bottom: 40px;
-}
-
-.about-section h2 {
-    font-size: 2em;
-    color: #356999; /* Warna aksen biru */
-    margin-bottom: 15px;
-    padding-bottom: 10px;
-    border-bottom: 2px solid #356999;
-    display: inline-block; /* Agar border hanya sepanjang teks */
-}
-
-.about-section p,
-.about-section li {
-    font-size: 1.1em;
-    text-align: justify; /* Teks rata kiri-kanan */
-}
-
-/* Daftar Fitur */
-.features-list {
-    list-style: none;
-    padding-left: 0;
-}
-
-.features-list li {
-    background-color: rgba(255, 255, 255, 0.05);
-    padding: 15px;
-    border-radius: 8px;
-    margin-bottom: 10px;
-    border-left: 4px solid #356999; /* Aksen garis di kiri */
-}
-
-.features-list strong {
-    color: #ffffff;
-}
-
-/* Bagian Profil Kreator */
-.creator-section {
-    display: flex;
-    align-items: center;
-    gap: 30px;
-    background-color: #1a1a1a;
-    padding: 30px;
-    border-radius: 12px;
-}
-
-.creator-section img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%; /* Membuat gambar menjadi lingkaran */
-    object-fit: cover;
-    border: 3px solid #356999;
-}
-
-.creator-quote {
-    font-style: italic;
-    color: #ccc;
-    margin-bottom: 15px;
-    border-left: 3px solid #555;
-    padding-left: 15px;
-}
-
-.creator-name {
-    font-weight: bold;
-    color: #ffffff;
-}
-
-/* --- Sidebar (Sebelah Kanan) --- */
-.about-aside .aside-box {
-    background-color: #1a1a1a;
-    padding: 25px;
-    border-radius: 12px;
-    margin-bottom: 30px;
-}
-
-.about-aside h3 {
-    font-size: 1.5em;
-    color: #356999;
-    margin-top: 0;
-    margin-bottom: 20px;
-    border-bottom: 1px solid #333;
-    padding-bottom: 10px;
-}
-
-.about-aside ul {
-    list-style: none;
-    padding: 0;
-    color: #ccc;
-}
-
-.about-aside ul li {
-    margin-bottom: 10px;
-    display: flex;
-    align-items: center;
-}
-
-.about-aside ul li strong {
-    color: #fff;
-    min-width: 150px; /* Agar titik dua sejajar */
-}
-
-/* Ikon Media Sosial di Sidebar */
-.aside-socials {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-    align-items: center;
-}
-
-.aside-socials a img {
-    width: 35px;
-    transition: transform 0.2s ease;
-}
-
-.aside-socials a img:hover {
-    transform: scale(1.15);
-}
-
-/* --- Aturan Responsive untuk Layar Kecil --- */
-@media (max-width: 992px) {
-    .page-wrapper-with-aside {
-        grid-template-columns: 1fr; /* Ubah layout menjadi 1 kolom */
-    }
-}
-
-@media (max-width: 768px) {
-    .creator-section {
-        flex-direction: column; /* Tumpuk gambar dan info secara vertikal */
-        text-align: center;
-    }
-}
-    </style>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 </head>
 
 <body>
     <header class="main-header">
-            <div class="head">
-                <button class="hamburger" id="hamburger">&#9776;</button>
-                    <a href="home.html" class="logo">
-                        <img src="/asset/finterest logo.jpg" alt="icon" />
-                        <h1>Fussionn<span><i class="art">Art</i></span></h1>
-                    </a>
-                    <nav class="navbar">
-                        <div class="nav-blur-overlay">
-                            <ul class="nav-menu" id="navMenu">
-                                <li class="hover"><a href="home.html">Home</a></li>
-                                <li class="hover"><a href="explore.html">Explore</a></li>
-                                <li class="hover"><a href="mesagge.html">Message</a></li>
-                                <li class="hover"><a class="active" githref="about.html">About</a></li>
-                                <li class="hover"><a href="profile.html">Profile</a></li>
-                                <li class="hover"><a href="profile.html">Mode</a></li>
-                                <li class="logout"><a href="/index.html" id="logout-button">Log Out</a></li>
-                            </ul>
-                        </div>
-                    </nav>
+        <div class="head">
+            <button class="hamburger" id="hamburger">&#9776;</button>
+            <a href="home.html" class="logo">
+                <img src="/asset/finterest logo.jpg" alt="icon" />
+                <h1>Fussionn<span><i class="art">Art</i></span></h1>
+            </a>
+            <nav class="navbar">
+                <div class="nav-blur-overlay">
+                    <ul class="nav-menu" id="navMenu">
+                        <li class="hover"><a href="home.html">Home</a></li>
+                        <li class="hover"><a href="explore.html">Explore</a></li>
+                        <li class="hover"><a href="mesagge.html">Message</a></li>
+                        <li class="hover"><a class="active" href="about.html">About</a></li>
+                        <li class="hover"><a href="profile.html">Profile</a></li>
+                        <li class="hover"><a id="theme-toggle" href="#">Mode</a></li>
+                        <li class="logout"><a id="logout-button" href="/index.html">Log out</a></li>
+                    </ul>
                 </div>
-            </header>
+            </nav>
+        </div>
+    </header>
 
-    <div class="page-wrapper-with-aside">
-        <main class="about-container">
-            <section class="about-hero">
-                <h1>Tentang FussionnART</h1>
-                <p class="subtitle">Kecintaan pada Seni Anime, Terwujud dalam Galeri Digital.</p>
-            </section>
+    <main class="page-wrapper-with-aside">
+        <section class="about-container">
+            <article>
 
-            <section class="about-section">
-                <h2>Misi Kami</h2>
-                <p>
-                    FussionnART lahir dari satu ide sederhana: menciptakan sebuah rumah digital bagi para penggemar
-                    anime di seluruh dunia. Misi kami adalah menjadi portal utama untuk menemukan, mengoleksi, dan
-                    berbagi gambar-gambar anime berkualitas tinggi. Kami percaya bahwa setiap frame dalam anime adalah
-                    sebuah karya seni, dan kami berdedikasi untuk menyajikannya dengan cara yang paling indah dan mudah
-                    diakses.
-                </p>
-            </section>
+                <div class="about-hero">
+                    <h1>Tentang FussionnART</h1>
+                    <p class="subtitle">Kecintaan pada Seni Anime, Terwujud dalam Galeri Digital.</p>
+                </div>
 
-            <section class="about-section">
-                <h2>Apa yang Kami Tawarkan?</h2>
-                <ul class="features-list">
-                    <li>
-                        <strong>Koleksi Lengkap & Terkurasi:</strong> Jelajahi ribuan gambar dari berbagai judul anime
-                        populer, mulai dari yang legendaris hingga yang terbaru. Setiap gambar dipilih untuk memastikan
-                        kualitas visual terbaik.
-                    </li>
-                    <li>
-                        <strong>Pencarian & Filter Canggih:</strong> Temukan gambar yang Anda cari dengan cepat melalui
-                        fitur pencarian, filter berdasarkan karakter, dan filter berdasarkan ukuran (potrait, landscape,
-                        square).
-                    </li>
-                    <li>
-                        <strong>Fitur Personalisasi:</strong> Jadikan galeri ini milik Anda. Dengan fitur "Suka" dan
-                        "Favorit", Anda dapat menyimpan dan mengorganisir koleksi gambar pribadi Anda dengan mudah.
-                    </li>
-                    <li>
-                        <strong>Desain yang Intuitif:</strong> Kami merancang antarmuka yang bersih, modern, dan
-                        responsif agar pengalaman Anda dalam menjelajahi galeri tetap nyaman di perangkat apa pun.
-                    </li>
-                </ul>
-            </section>
-
-            <section class="about-section creator-section">
-                <img src="/asset/finterest logo.jpg" alt="Foto Profil Kreator">
-                <div class="creator-info">
-                    <h2>Dari Sang Kreator</h2>
-                    <p class="creator-quote">
-                        "Sebagai seorang penggemar berat anime, saya sering kesulitan menemukan tempat yang menyediakan
-                        gambar berkualitas tinggi secara terorganisir. FussionnART adalah jawaban atas masalah
-                        itu—sebuah proyek dari hati, yang dibangun oleh seorang penggemar untuk para penggemar. Saya
-                        harap Anda menikmati setiap detiknya."
+                <div class="about-div">
+                    <h2>Misi Kami</h2>
+                    <p>
+                        FussionnART lahir dari satu ide sederhana: menciptakan sebuah rumah digital bagi para penggemar
+                        anime di seluruh dunia. Misi kami adalah menjadi portal utama untuk menemukan, mengoleksi, dan
+                        berbagi gambar-gambar anime berkualitas tinggi. Kami percaya bahwa setiap frame dalam anime
+                        adalah
+                        sebuah karya seni, dan kami berdedikasi untuk menyajikannya dengan cara yang paling indah dan
+                        mudah
+                        diakses.
                     </p>
-                    <p class="creator-name">- Farid Muhamad, Kreator FussionnART</p>
                 </div>
-            </section>
 
-            <section class="about-section">
-                <h2>Bergabunglah dengan Kami</h2>
-                <p>
-                    FussionnART akan terus berkembang. Kami memiliki banyak rencana untuk menambahkan lebih banyak
-                    koleksi dan fitur menarik di masa depan. Ikuti kami di media sosial untuk mendapatkan pembaruan
-                    terbaru, atau hubungi kami jika Anda memiliki saran dan masukan. Terima kasih telah menjadi bagian
-                    dari komunitas kami!
-                </p>
-            </section>
-        </main>
+                <div class="about-div">
+                    <h2>Apa yang Kami Tawarkan?</h2>
+                    <ul class="features-list">
+                        <li>
+                            <strong>Koleksi Lengkap & Terkurasi:</strong> Jelajahi ribuan gambar dari berbagai judul
+                            anime
+                            populer, mulai dari yang legendaris hingga yang terbaru. Setiap gambar dipilih untuk
+                            memastikan
+                            kualitas visual terbaik.
+                        </li>
+                        <li>
+                            <strong>Pencarian & Filter Canggih:</strong> Temukan gambar yang Anda cari dengan cepat
+                            melalui
+                            fitur pencarian, filter berdasarkan karakter, dan filter berdasarkan ukuran (potrait,
+                            landscape,
+                            square).
+                        </li>
+                        <li>
+                            <strong>Fitur Personalisasi:</strong> Jadikan galeri ini milik Anda. Dengan fitur "Suka" dan
+                            "Favorit", Anda dapat menyimpan dan mengorganisir koleksi gambar pribadi Anda dengan mudah.
+                        </li>
+                        <li>
+                            <strong>Desain yang Intuitif:</strong> Kami merancang antarmuka yang bersih, modern, dan
+                            responsif agar pengalaman Anda dalam menjelajahi galeri tetap nyaman di perangkat apa pun.
+                        </li>
+                    </ul>
+                </div>
+                <div class="about-div creator-div">
+                    <img src="/asset/finterest logo.jpg" alt="Foto Profil Kreator">
+                    <div class="creator-info">
+                        <h2>Dari Sang Kreator</h2>
+                        <p class="creator-quote">
+                            "Sebagai seorang penggemar berat anime, saya sering kesulitan menemukan tempat yang
+                            menyediakan
+                            gambar berkualitas tinggi secara terorganisir. FussionnART adalah jawaban atas masalah
+                            itu—sebuah proyek dari hati, yang dibangun oleh seorang penggemar untuk para penggemar. Saya
+                            harap Anda menikmati setiap detiknya."
+                        </p>
+                        <p class="creator-name">- Farid Muhamad, Kreator FussionnART</p>
+                    </div>
+                </div>
+
+                <div class="about-div">
+                    <h2>Bergabunglah dengan Kami</h2>
+                    <p>
+                        FussionnART akan terus berkembang. Kami memiliki banyak rencana untuk menambahkan lebih banyak
+                        koleksi dan fitur menarik di masa depan. Ikuti kami di media sosial untuk mendapatkan pembaruan
+                        terbaru, atau hubungi kami jika Anda memiliki saran dan masukan. Terima kasih telah menjadi
+                        bagian
+                        dari komunitas kami!
+                    </p>
+                </div>
+            </article>
+        </section>
 
         <aside class="about-aside">
             <div class="aside-box">
@@ -306,8 +144,7 @@
                 </div>
             </div>
         </aside>
-
-    </div>
+    </main>
 
     <footer class="xiaomi-foot">
         <div class="foot-contain">

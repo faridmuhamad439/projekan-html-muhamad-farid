@@ -2,11 +2,7 @@
 
 // PENTING: GANTI DENGAN PATH VIDEO LOKAL ANDA
 const localVideoPaths = [
-    "../asset/bg_animme.mp4",
-    "../asset/jujutsu3.mp4",
-    "../asset/boku.mp4",
     "../asset/hunter.mp4",
-    "../asset/punch.mp4",
 ];
 
 let currentVideoIndex = 0;

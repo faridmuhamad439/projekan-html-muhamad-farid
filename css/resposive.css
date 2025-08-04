@@ -1,114 +1,95 @@
-/* rensponsif header */
-.hamburger {
-    display: none;
-    top: 0;
-    margin-top: 10px;
-    font-size: 2.2rem;
-    background: none;
-    border: none;
-    color: var(--accent);
-    cursor: pointer;
-}
-
-@media (max-width: 1000px) {
-    .nav-blur-overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        height: 100vh;
-        width: 100vw;
-        backdrop-filter: blur(20px);
-        background-color: rgba(0, 0, 0, 0.24);
-        opacity: 0;
-        pointer-events: none;
-        transition: opacity 0.5s ease;
-        z-index: 998;
-    }
-
-    .head {
-        backdrop-filter: none;
-        background-color: var(--box);
-    }
-
-    .nav-blur-overlay.show {
-        opacity: 1;
-        pointer-events: auto;
-    }
-
-    .nav-blur-overlay.show {
-        display: block;
-    }
-
-    /* nav-menu tetap 50% */
+/* ==================================== */
+/* 6. RESPONSIVE (UNTUK LAYAR KECIL)    */
+/* ==================================== */
+@media (max-width: 768px) {
     .nav-menu {
-        position: fixed;
-        width: 50%;
-        left: 0;
-        top: 0;
-        height: 100vh;
-        background-color: rgba(0, 0, 0, 0.404);
-        backdrop-filter: blur(20px);
         display: none;
         flex-direction: column;
-        justify-content: center;
-        z-index: 999;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--bg-mobile-nav);
+        padding: 1rem 0;
     }
 
-    .nav-menu.show {
+    .nav-menu.active {
         display: flex;
-        transform: translateX(0);
     }
 
     .nav-menu li {
-        /* padding: auto; */
-
-        margin: 2rem 3rem;
-        list-style: circle;
-        font-size: 1rem;
+        width: 100%;
+        text-align: center;
     }
 
-    .logo img {
-        display: none;
+    .nav-menu li a {
+        display: block;
+        padding: 1rem;
     }
 
     .hamburger {
         display: block;
-        position: fixed;
-        z-index: 1000;
     }
 
-
-
-    .logo {
-        margin-left: auto;
-        /* flex: 1; */
-        /* display: flex; */
-        /* flex-direction: row; */
-        /* justify-content: center; */
-        /* align-items: center; */
-        /* gap: 1rem; */
+    .foot-contain {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 40px;
     }
 
-    .home-text {
-        padding-left: 25px;
+    .foot-medsos {
+        justify-content: center;
+    }
+}
+
+
+
+
+@media (max-width: 768px) {
+    .anime-gallery {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     }
 
-    .home-text h1 {
-        font-size: 1rem;
-        font-weight: 600;
-        color: var(--text);
+    h1 {
+        font-size: 2.5rem;
     }
 
-    .home-text p {
-        font-size: 0.5rem;
+    .landscape-card {
+        height: 180px;
     }
 
-    .watch-btn .bx {
-        width: 20px;
-        height: 20px;
+    .card-title {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .anime-gallery {
+        grid-template-columns: 1fr;
     }
 
-    .watch-btn span {
-        font-size: 0.5rem;
+    h1 {
+        font-size: 2rem;
+    }
+
+    .landscape-card {
+        height: 160px;
+    }
+}
+
+/* --- Aturan Responsive untuk Layar Kecil --- */
+@media (max-width: 992px) {
+    .page-wrapper-with-aside {
+        grid-template-columns: 1fr;
+        /* Ubah layout menjadi 1 kolom */
+    }
+}
+
+@media (max-width: 768px) {
+    .creator-section {
+        flex-direction: column;
+        /* Tumpuk gambar dan info secara vertikal */
+        text-align: center;
     }
 }
